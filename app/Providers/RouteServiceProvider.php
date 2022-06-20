@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,26 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+
+    public const HOME = '/admin/dashboard';
+
+
+    public function redirectTo(): string
+    {
+        if (Auth::user()->rule === '1')
+        {
+
+            return route('admin.dashboard');
+
+        }
+        if (Auth::user()->rule === '0')
+        {
+            return route('profile.show');
+
+        }
+        return route('home');
+
+    }
 
     /**
      * The controller namespace for the application.
