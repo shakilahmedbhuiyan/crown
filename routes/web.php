@@ -24,5 +24,5 @@ Route::group([
     ], static function () {
     Route::get('/dashboard', App\Http\Livewire\Admin\Pages\Index::class)->name('dashboard');
     Route::get('/zip_code', App\Http\Livewire\Admin\Pages\ZipCode::class)->name('zip_code');
-    Route::get('/category', App\Http\Livewire\Admin\Pages\ZipCode::class)->name('category');
+    Route::get('/category', App\Http\Livewire\Admin\Pages\Category::class)->name('category');
 });
