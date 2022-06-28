@@ -23,45 +23,22 @@
                 </legend>
 
                 <div class="px-5 py-6 space-y-2">
+
+                    @foreach($category as $c)
                     <div class="flex items-center">
-                        <input id="side-orders"
+                        <input id="{{ $c['name'] }}"
                                type="checkbox"
-                               name="type[side-orders]"
+                               name="type[{{ $c['id'] }}]"
                                class="w-5 h-5 border-red-300 rounded"/>
 
                         <label for="side-orders" class="ml-3 text-sm font-medium">
-                            Side Orders
+                            {{ $c['name'] }}
                         </label>
                     </div>
 
-                    <div class="flex items-center">
-                        <input
-                            id="burger"
-                            type="checkbox"
-                            name="type[burger]"
-                            class="w-5 h-5 border-gray-300 rounded"
-                        />
+                        @endforeach
 
-                        <label
-                            for="burger"
-                            class="ml-3 text-sm font-medium">
-                            Burger
-                        </label>
-                    </div>
 
-                    <div class="flex items-center">
-                        <input
-                            id="mexican"
-                            type="checkbox"
-                            name="type[mexican]"
-                            class="w-5 h-5 border-gray-300 rounded"/>
-
-                        <label
-                            for="mexican"
-                            class="ml-3 text-sm font-medium">
-                            Mexican
-                        </label>
-                    </div>
 
                     <div class="pt-2">
                         <button type="button"
