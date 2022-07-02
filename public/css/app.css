@@ -2495,16 +2495,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ease-in{
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-/*! 
-* @package IcoFont 
-* @version 1.0.1 
-* @author IcoFont https://icofont.com 
-* @copyright Copyright (c) 2015 - 2018 IcoFont 
+/*!
+* @package IcoFont
+* @version 1.0.1
+* @author IcoFont https://icofont.com
+* @copyright Copyright (c) 2015 - 2018 IcoFont
 * @license - https://icofont.com/license/
 */
 @font-face
 {
- 
+
   font-family: "IcoFont";
 font-weight: normal;
 font-style: "Regular";
@@ -11628,14 +11628,16 @@ url(/fonts/icofont.woff?dad3accba068281878f17175c6020940) format("woff");
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
-
+.dark .dark\:bg-indigo-900{
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 46 129 / var(--tw-bg-opacity));
+}
 .dark .dark\:bg-opacity-25{
   --tw-bg-opacity: 0.25;
 }
 .dark .dark\:bg-opacity-80{
   --tw-bg-opacity: 0.8;
 }
-
 .dark .dark\:text-gray-200{
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -11675,10 +11677,6 @@ url(/fonts/icofont.woff?dad3accba068281878f17175c6020940) format("woff");
 .dark .dark\:text-orange-400{
   --tw-text-opacity: 1;
   color: rgb(251 146 60 / var(--tw-text-opacity));
-}
-.dark .dark\:text-gray-100{
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 .dark .dark\:placeholder-gray-400::-moz-placeholder{
   --tw-placeholder-opacity: 1;
