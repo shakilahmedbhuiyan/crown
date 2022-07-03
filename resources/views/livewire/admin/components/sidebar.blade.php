@@ -17,7 +17,7 @@
 
         <nav class="mt-10">
 
-            <x-jet-dash-link :active="request()->routeIs('admin.dashboard') " href="{{ route('admin.dashboard') }}">
+            <x-jet-nav-link :active="request()->routeIs('admin.dashboard') " href="{{ route('admin.dashboard') }}">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -26,7 +26,7 @@
                           d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
                 </svg>
                 <span class="mx-3">Dashboard</span>
-            </x-jet-dash-link>
+            </x-jet-nav-link>
 
            <div class="relative mt-3 mb-2">
                 <p class="flex text-gray-500 justify-center items-center absolute right-0 -bottom-2 bg-gray-900 rounded-full px-2">
@@ -108,7 +108,7 @@
 
             <hr class="my-2 border-red-400/50"/>
             <!-- Service Areas -->
-            <x-jet-dash-link href="{{ route('admin.zip_code') }}" :active="request()->routeIs('admin.zip_code') ">
+            <x-jet-nav-link href="{{ route('admin.zip_code') }}" :active="request()->routeIs('admin.zip_code') ">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -117,10 +117,10 @@
                 </svg>
 
                 <span class="mx-3">Service Areas</span>
-            </x-jet-dash-link>
+            </x-jet-nav-link>
 
             <!-- Categories -->
-            <x-jet-dash-link :active="request()->routeIs('admin.category')" href="{{ route('admin.category') }}">
+            <x-jet-nav-link :active="request()->routeIs('admin.category')" href="{{ route('admin.category') }}">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -128,7 +128,7 @@
                 </svg>
 
                 <span class="mx-3">Food Categories</span>
-            </x-jet-dash-link>
+            </x-jet-nav-link>
 
             <!-- Items -->
             <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
