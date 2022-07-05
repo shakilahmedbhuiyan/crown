@@ -6,7 +6,7 @@
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
                 <a href="{{ route('home') }}">
-                    <x-jet-application-mark class="block h-9 w-auto  leading-loose"/>
+                    <x-application-mark class="block h-9 w-auto leading-loose"></x-application-mark>
                 </a>
             </div>
 
@@ -87,18 +87,18 @@
                 <div class="h-full flex justify-center items-center flex-col backdrop-filter backdrop-blur ">
                     <div class="shrink-0 flex items-center">
                         <a href="{{ route('home') }}">
-                            <x-jet-application-mark class="block h-20 w-auto  leading-loose"></x-jet-application-mark>
+                            <x-application-mark class="block h-20 w-auto leading-loose"></x-application-mark>
                         </a>
                     </div>
-                    <x-jet-nav-link href="{{__(route('home'))}}" @click="navOpen = false"
+                    <x-nav-link href="{{__(route('home'))}}" @click="navOpen = false"
                                     :active="request()->routeIs('home')">
                         {{__('Home')}}
-                    </x-jet-nav-link>
+                    </x-nav-link>
 
-                    <x-jet-nav-link href="{{ route('menu') }}" @click="navOpen = false"
+                    <x-nav-link href="{{ route('menu') }}" @click="navOpen = false"
                                     :active="request()->routeIs('menu')">
                         {{ __('Menu') }}
-                    </x-jet-nav-link>
+                    </x-nav-link>
                     <a href="#" @click="active = 'mexican'; navOpen = false">
                         <h1 class="p-3 hover:text-indigo-400 transition duration-200"
                             :class="active == 'mexican'?'border-b-2 border-indigo-400 text-indigo-400':''">Mexican
@@ -169,29 +169,21 @@
                 </button>
 
                 <!-- nav Links -->
-                <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{__('Home')}}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('menu') }}" :active="request()->routeIs('menu')">
+                </x-nav-link>
+                <x-nav-link href="{{ route('menu') }}" :active="request()->routeIs('menu')">
                     {{ __('Menu') }}
-                </x-jet-nav-link>
-                <a href="#" @click="active = 'profile'">
-                    <h1 class="p-3 font-medium hover:text-indigo-400 transition duration-200"
-                        :class="active == 'profile'?'border-b-2 border-indigo-400 text-indigo-400':''">Mexican</h1>
-                </a>
-                <a href="#" @click="active = 'profile'">
-                    <h1 class="p-3 font-medium hover:text-indigo-400 transition duration-200"
-                        :class="active == 'profile'?'border-b-2 border-indigo-400 text-indigo-400':''">Italian</h1>
-                </a>
-                <a href="#" @click="active = 'profile'">
-                    <h1 class="p-3 font-medium hover:text-indigo-400 transition duration-200"
-                        :class="active == 'profile'?'border-b-2 border-indigo-400 text-indigo-400':''">Indian</h1>
-                </a>
+                </x-nav-link>
+                <x-nav-link href="#" :active="request()->routeIs('mexican')">Mexican
+                </x-nav-link>
+                <x-nav-link href="#" :active="request()->routeIs('italian')">Italian
+                </x-nav-link>
+                <x-nav-link href="#" :active="request()->routeIs('indian')">Indian
+                </x-nav-link>
 
-                <a href="#" @click="active = 'contact'">
-                    <h1 class="p-3 font-medium hover:text-indigo-400 transition duration-200"
-                        :class="active == 'contact'?'border-b-2 border-indigo-400 text-indigo-400':''">Contact</h1>
-                </a>
+                <x-nav-link href="#" :active="request()->routeIs('contact')">Contact
+                </x-nav-link>
 
                 <!-- Settings Dropdown -->
                 @if( Auth()->user())
@@ -253,7 +245,7 @@
                         </x-jet-dropdown>
                     </div>
                 @else
-                    <x-jet-nav-link href="{{ route('login') }}" class="flex justify-center items-center gap-2"
+                    <x-nav-link href="{{ route('login') }}" class="flex justify-center items-center gap-2"
                                     :active="request()->routeIs('login')">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-180" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -261,7 +253,7 @@
                                   d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
                         </svg>
                         {{__('Sign up') }}
-                    </x-jet-nav-link>
+                    </x-nav-link>
             @endif
             <!-- Nav links End -->
                 <!-- Search Button -->
