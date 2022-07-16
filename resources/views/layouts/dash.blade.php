@@ -13,7 +13,6 @@
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FF5C5C">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#FF5C5C">
 
-
     <title>{{ config('app.name')}}</title>
 
     <!-- Styles -->
