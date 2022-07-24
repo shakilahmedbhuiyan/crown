@@ -105,7 +105,19 @@
                         </a>
                     @endif
                 </div>
-
+                <div class="relative">
+                    <hr class="border-red-400 my-2"/>
+                    <span class="absolute inset-y-0 right-[45%] inline-flex items-center justify-center px-4 bg-white dark:bg-gray-800 ">
+                        or
+                    </span>
+                </div>
+                <div class="flex items-center justify-center mt-4">
+                    <a href="{{ route('google.login')}}">
+                        <button type="button" class="google-login drop-shadow-lg dark:bg-gray-800 font-semibold">
+                            Sign in with Google
+                        </button>
+                    </a>
+                </div>
 
             </div>
         </form>

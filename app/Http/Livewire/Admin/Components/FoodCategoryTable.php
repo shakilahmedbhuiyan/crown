@@ -35,9 +35,8 @@ class FoodCategoryTable extends LivewireDatatable
             LabelColumn::name('description')
                 ->searchable()
                 ->editable(),
-            LabelColumn::name('category_notes.note')
-                ->editable()
-                ->filterable(),
+           Column::name('category_notes.note')
+               ->filterable(),
             BooleanColumn::name('status')
                 ->filterable()
                 ->editable()
