@@ -81,7 +81,7 @@
                  x-transition:leave="transition ease-in duration-300"
                  x-transition:leave-start="opacity-100 transform translate-x-0"
                  x-transition:leave-end="opacity-0 transform -translate-x-5"
-                 class="sm:hidden fixed h-screen top-0 left-0 bottom-0 w-60 bg-gray-100 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-80 shadow-lg">
+                 class="sm:hidden fixed h-screen overflow-y-auto top-0 left-0 bottom-0 pb-6 w-60 bg-gray-100 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-80 shadow-lg">
 
 
                 <div class="h-full flex justify-center items-center flex-col backdrop-filter backdrop-blur ">
@@ -91,12 +91,12 @@
                         </a>
                     </div>
                     <x-nav-link href="{{__(route('home'))}}" @click="navOpen = false"
-                                :active="request()->routeIs('home')">
+                                :active=" request()->routeIs('home')">
                         {{__('Home')}}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('menu') }}" @click="navOpen = false"
-                                :active="request()->routeIs('menu')">
+                                :active=" request()->routeIs('menu')">
                         {{ __('Menu') }}
                     </x-nav-link>
                     <a href="#" @click="active = 'mexican'; navOpen = false">
@@ -188,6 +188,12 @@
                                         <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                             {{ __('API Tokens') }}
                                         </x-jet-dropdown-link>
+                                    @endif
+                                    @if ( Auth()->user()->isAdmin())
+                                        <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
+                                            {{ __('Dashboard') }}
+                                        </x-jet-dropdown-link>
+
                                     @endif
 
                                     <div class="border-t border-gray-100"></div>
@@ -296,6 +302,13 @@
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}
                                 </x-jet-dropdown-link>
+
+                                @if ( Auth()->user()->isAdmin())
+                                    <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
+                                        {{ __('Dashboard') }}
+                                    </x-jet-dropdown-link>
+
+                                @endif
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">

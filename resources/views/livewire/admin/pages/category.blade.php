@@ -12,7 +12,7 @@
         </button>
     </div>
 
-    <livewire:admin.components.food-category-table />
+    <livewire:admin.components.food-category-table/>
 
     <!-- session Message -->
     <div class="relative ">
@@ -20,7 +20,7 @@
             @if( session()->has('success'))
                 <div
                     class="border-2 border-green-400/50 bg-white dark:bg-gray-800 dark:text-gray-300 shadow-md p-2 my-1 rounded-lg"
-                    x-data="{ show: true }" x-show="show" wire:key="{{ ('createFoodCategoryModal').rand(3,8) }}"
+                    x-data="{ show: true }" x-show="show" wire:key="{{ ('createFoodCategoryModal').random_int(3,8) }}"
                     x-init="setTimeout(() => show = false, 3000)">
 
                     <p x-init="createFoodCategoryModal=false">
@@ -34,6 +34,7 @@
         </div>
     </div>
 
+
     <!--Overlay-->
     <div class="overflow-auto bg-gray-900/50" x-show="createFoodCategoryModal"
          :class="{ 'absolute inset-0 z-10 flex items-center justify-center': createFoodCategoryModal}">
@@ -43,7 +44,7 @@
     <!--Dialog-->
     <section id="createFoodCategoryModal" tabindex="-1" role="dialog" aria-modal="true" x-show="createFoodCategoryModal"
              class=" overflow-y-auto overflow-x-hidden fixed top-0   z-20 w-3/4 h-modal md:h-full"
-             wire:key="{{ ('createFoodCategoryModal').rand(3,8) }}">
+             wire:key="{{ ('createFoodCategoryModal').random_int(3,8) }}">
         <div class="lg:mx-6 my-2 max-w-screen-xl shadow-lg">
 
 
@@ -104,24 +105,38 @@
                         </h3>
                         <div class="flex flex-col  w-full">
                             @foreach( $notes as $key=>$note)
-                                    <div class="w-full rounded-md border-2 border-red-400/20 mb-1">
-                                        <label for="input_{{$key}}" class="sr-only">Notes</label>
-                                        <input type="text" id="note_{{$key}}" wire:model.defer="notes.{{$key}}"
-                                               class="drop-shadow border-1 focus:outline-none p-3 block w-full sm:text-sm border-gray-300 rounded-md"
-                                               placeholder="Enter Category Notes" autocomplete="off" value=" {{ old('notes.'.$key) }}">
+                                <div class="w-full rounded-md border-2 border-red-400/20 mb-1">
+                                    <label for="input_{{$key}}" class="sr-only">Notes</label>
+                                    <input type="text" id="note_{{$key}}" wire:model.defer="notes.{{$key}}"
+                                           class="drop-shadow border-1 focus:outline-none p-3 block w-full sm:text-sm border-gray-300 rounded-md"
+                                           placeholder="Enter Category Notes" autocomplete="off"
+                                           value=" {{ old('notes.'.$key) }}">
 
-                                    </div>
+                                </div>
                                 @error('notes.'.$key)
-                                <span class="text-xs text-red-600 flex items-start justify-center">{{ $message }}</span> @enderror
-                                    @if($key > 0)
-                                        <div wire:click="removeInput({{$key}})" class="flex items-center justify-end text-red-600 text-sm w-full cursor-pointer">
-                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                                            <p>Remove Note</p>
-                                        </div>
-                                    @endif
+                                <span
+                                    class="text-xs text-red-600 flex items-start justify-center">{{ $message }}</span> @enderror
+                                @if($key > 0)
+                                    <div wire:click="removeInput({{$key}})"
+                                         class="flex items-center justify-end text-red-600 text-sm w-full cursor-pointer">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p>Remove Note</p>
+                                    </div>
+                                @endif
                             @endforeach
-                            <div wire:click="addInput" class="flex items-center justify-center text-blue-600 text-sm py-4 w-full cursor-pointer">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
+                            <div wire:click="addInput"
+                                 class="flex items-center justify-center text-blue-600 text-sm py-4 w-full cursor-pointer">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                                          clip-rule="evenodd"></path>
+                                </svg>
                                 <p class="ml-2"> Add New Note</p>
                             </div>
                         </div>
@@ -130,19 +145,14 @@
                     <!-- note ends -->
 
                     <div class="mt-4">
-                        <button
-                            type="submit"
-                            class="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-black rounded-lg sm:w-auto"
-                        >
-                            <span class="font-medium"> Send Enquiry </span>
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5 ml-3"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
+                        <button type="submit"
+                                class="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-black rounded-lg sm:w-auto">
+                            <span class="font-medium"> Add Category </span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="w-5 h-5 ml-3"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>

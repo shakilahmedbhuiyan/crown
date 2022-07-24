@@ -24,7 +24,7 @@ class FoodCategoryTable extends LivewireDatatable
         return FoodCategory::query()->leftJoin('category_notes', 'food_category_id', 'food_categories.id');
     }
 
-    public function columns()
+    public function columns(): array
     {
         return [
 
@@ -35,9 +35,8 @@ class FoodCategoryTable extends LivewireDatatable
             LabelColumn::name('description')
                 ->searchable()
                 ->editable(),
-            LabelColumn::name('category_notes.note')
-                ->editable()
-                ->filterable(),
+           Column::name('category_notes.note')
+               ->filterable(),
             BooleanColumn::name('status')
                 ->filterable()
                 ->editable()
