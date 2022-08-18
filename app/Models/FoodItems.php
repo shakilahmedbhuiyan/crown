@@ -28,4 +28,8 @@ class FoodItems extends Model
         return $this->hasMany(Attribute::class);
     }
 
+    public function s_k_u_s()
+    {
+
+    }
 }

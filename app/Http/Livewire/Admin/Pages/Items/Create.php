@@ -12,9 +12,10 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
     use WithFileUploads;
-    public $form= [];
+
+    public $form = [];
     public $image;
-    public $prices=[' '];
+    public $prices = [' '];
     public $categories, $attributes, $attributes_selected;
 
 
@@ -51,39 +52,25 @@ class Create extends Component
 
     public function mount(): void
     {
-       $this->categories = FoodCategory::getActiveCategory()->toArray();
-       $this->attributes = Attribute::getActiveAttributes()->toArray();
+        $this->categories = FoodCategory::getActiveCategory()->toArray();
+
     }
 
 
-    /*
-     * Save the note input to the model 'inputs' collection.
+    /**
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function addInput(): void
+    public function createItem()
     {
-        $this->prices[]='';
-    }
-
-    /*
-     * remove the note input from the model 'inputs' collection.
-     */
-    public function removeInput($key): void
-    {
-        $this->prices->pull($key);
-    }
-
-    public function createItem(): \Illuminate\Http\RedirectResponse
-    {
-        $validated=$this->validate();
-
-        $data['name'] = $validated['form']['name'];
-        $data['description'] = $validated['form']['description'];
-        $data['image'] = $this->uploadImage($validated['image'],'items',$validated['form']['name']);
-        $data['category_id'] = $validated['form']['category'];
-        $data['is_available'] = $validated['form']['status'];
-
-        FoodItems::create($data);
-        return redirect()->route('admin.item.index')->with('success', 'Item created successfully');
+        $validated = $this->validate();
+        $item=FoodItems::create([
+            'name' => $validated['form']['name'],
+            'description' => $validated['form']['description'],
+            'image' => $this->uploadImage($validated['image'], 'items', $validated['form']['name']),
+            'category_id' => $validated['form']['category'],
+            'is_available' => $validated['form']['status'],
+        ]);
+        return redirect()->route('admin.sku.create', $item->id)->with('success', 'Item created successfully');
     }
 
     /**
@@ -96,7 +83,7 @@ class Create extends Component
     {
         if ($image) {
             $imageName = $name . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('img/'.$folder, $imageName, 'public');
+            $image->storeAs('img/' . $folder, $imageName, 'public');
             return $imageName;
         }
         return null;

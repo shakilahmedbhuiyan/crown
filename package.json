@@ -24,6 +24,7 @@
         "tailwindcss": "^3.0.24"
     },
     "dependencies": {
+        "@flaticon/flaticon-uicons": "^1.7.0",
         "@tailwindcss/aspect-ratio": "^0.4.0",
         "@tailwindcss/line-clamp": "^0.4.0",
         "turbolinks": "^5.2.0"

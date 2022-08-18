@@ -38,4 +38,7 @@ Route::group([
     Route::get('/food-item/{item}/edit', App\Http\Livewire\Admin\Pages\Items\Edit::class)->name('item.edit');
 
     Route::get('/attributes', App\Http\Livewire\Admin\Pages\Attribute::class)->name('attributes');
+
+    Route::get('/food-item/{foodItem_id}/sku', App\Http\Livewire\Admin\Pages\Sku\Create::class,
+        ['foodItem_id' => 'foodItem_id'])->name('sku.create');
 });

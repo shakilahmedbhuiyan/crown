@@ -4,6 +4,8 @@
 @import 'tailwindcss/utilities';
 
 @import 'icofont/icofont.css';
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
+/*@import 'uicons-bold-rounded/css/uicons-bold-rounded.css';*/
 
 ::-webkit-scrollbar {
     width: 7px;

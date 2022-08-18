@@ -17,7 +17,7 @@ class CreateFoodItemsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->string('image')->default('foodImagePlaceholder.svg');
+            $table->string('image')->default('foodImagePlaceholder.svg')->nullable();
             $table->foreignId('category_id')->constrained('food_categories');
             $table->boolean('is_available')->default(true);
             $table->timestamps();
