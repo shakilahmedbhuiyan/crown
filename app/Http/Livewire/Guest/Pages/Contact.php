@@ -2,29 +2,25 @@
 
 namespace App\Http\Livewire\Guest\Pages;
 
-use App\Models\FoodItems;
 use Livewire\Component;
 
-class Menu extends Component
+class Contact extends Component
 {
-    public array $header = array();
-    public $items=[];
+    public $header= array();
+    public $form;
 
     public function mount()
     {
         $this->header =
             [
-                'title' => 'Menu',
-                'breadcrumbs' => ['home', 'menu']
+                'title' => 'Contact',
+                'breadcrumbs' => ['home', 'contact']
             ];
 
     }
-
     public function render()
     {
-        return view('livewire.guest.pages.menu')
+        return view('livewire.guest.pages.contact')
             ->layout('layouts.guest', ['title' => $this->header['title']]);
     }
-
-
 }

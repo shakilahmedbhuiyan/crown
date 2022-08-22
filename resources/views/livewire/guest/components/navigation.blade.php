@@ -137,12 +137,10 @@
                         </h1>
                     </a>
 
-
-                    <a href="#" @click="active = 'contact'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'contact'?'border-b-2 border-indigo-400 text-indigo-400':''">Contact
-                        </h1>
-                    </a>
+                    <x-nav-link href="{{ route('contact') }}" @click="navOpen = false"
+                                :active=" request()->routeIs('contact')">
+                        {{ __('Contact') }}
+                    </x-nav-link>
 
 
                     <!-- Settings Dropdown -->
@@ -261,7 +259,8 @@
                 <x-nav-link href="#" :active="request()->routeIs('indian')">Indian
                 </x-nav-link>
 
-                <x-nav-link href="#" :active="request()->routeIs('contact')">Contact
+                <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                    {{ __('Contact') }}
                 </x-nav-link>
 
                 <!-- Settings Dropdown -->

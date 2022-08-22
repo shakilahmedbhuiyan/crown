@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\Guest\Components;
 
+use App\Models\Attribute;
 use App\Models\FoodCategory;
 use Livewire\Component;
 
 class CategorySidebar extends Component
 {
-    public $category;
+    public $categories, $attributes;
     public function render()
     {
         return view('livewire.guest.components.category-sidebar');
@@ -15,6 +16,7 @@ class CategorySidebar extends Component
 
     public function mount()
     {
-        $this->category = FoodCategory::getActiveCategory()->toArray();
+        $this->categories = FoodCategory::getActiveCategory()->toArray();
+        $this->attributes = Attribute::getActiveAttributes()->toArray();
     }
 }

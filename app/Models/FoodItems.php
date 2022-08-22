@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class FoodItems extends Model
 {
@@ -23,13 +24,9 @@ class FoodItems extends Model
     {
         return $this->belongsTo(FoodCategory::class);
     }
-    public function attributes(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function sku()
     {
-        return $this->hasMany(Attribute::class);
+        return $this->hasMany(SKU::class,'food_item_id');
     }
 
-    public function s_k_u_s()
-    {
-
-    }
 }

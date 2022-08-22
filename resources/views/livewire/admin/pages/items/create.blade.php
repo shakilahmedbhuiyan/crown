@@ -159,7 +159,7 @@
                     <x-jet-input type="text"
                                  class="w-full p-3 border border-red-200 rounded-lg bg-transparent focus:ring-2 focus:ring-indigo-500 outline-none "
                                  placeholder="Name" type="text" id="form.name"
-                                 wire:model.defer="form.name"></x-jet-input>
+                                 wire:model.defer="form.name "></x-jet-input>
                     <x-jet-input-error for="form.name"></x-jet-input-error>
                 </div>
 

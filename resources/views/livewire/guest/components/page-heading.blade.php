@@ -1,6 +1,5 @@
-<section class="bg-[url('/img/hero-bg.svg')] scale-45 shadow-lg border-b-2 border-red-400/50">
+<section class="bg-[url('/img/hero-bg.svg')] shadow-lg border-b-2 border-red-400/50">
 <div class="container px-6 py-14 mx-auto ">
-
     <div class="items-center lg:flex py-15 sm:py-5">
         <div class="container px-2 flex items-center justify-between drop-shadow-xl">
             <div class="flex-1 min-w-0">

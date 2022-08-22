@@ -99,7 +99,7 @@
             </button>
         </div>
 
-        <div x-data="{ dropdownOpen: false }" class="relative">
+        <div x-data="{ dropdownOpen: false }" class=" z-50">
             <button @click="dropdownOpen = ! dropdownOpen"
                     class="relative block w-8 h-8 overflow-hidden rounded-full shadow focus:outline-none text-gray-700 dark:text-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -108,10 +108,10 @@
             </button>
 
             <div x-cloak x-show="dropdownOpen" @click="dropdownOpen = false"
-                 class="fixed inset-0 z-10 w-full h-full"></div>
+                 class="fixed inset-0 z-50 w-full h-full"></div>
 
             <div x-cloak x-show="dropdownOpen"
-                 class="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
+                 class="absolute right-0 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl z-[100]">
                 <a href=" {{ route('profile.show') }}"
                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>
                 <!-- Authentication -->

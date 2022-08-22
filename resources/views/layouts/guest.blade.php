@@ -83,7 +83,7 @@
         </header>
     @endif
 
-    <div class="">
+    <div class="py-4">
         {{ $slot }}
     </div>
 </div>

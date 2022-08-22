@@ -5,7 +5,7 @@
 
 </section>
 
-<section class="py-4 flex flex-col w-full md:flex-row h-[400px] md:h-[350px]">
+<section class=" flex flex-col w-full md:flex-row h-[400px] md:h-[350px]">
     <div class="md:flex md:items-center md:justify-center md:w-1/2">
         <div class="px-6 py-6 md:px-8 md:py-0">
             <h2 class="text-lg font-bold text-gray-800 dark:text-white">
@@ -24,6 +24,7 @@
         </div>
 
     </div>
+
 
     <div class="flex items-center justify-center px-2 md:w-1/2">
         <iframe
