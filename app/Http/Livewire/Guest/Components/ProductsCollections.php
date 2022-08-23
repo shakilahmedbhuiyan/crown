@@ -11,7 +11,9 @@ use Livewire\Component;
 class ProductsCollections extends Component
 {
     public $limit;
-    public $category=[1,2,4,7];
+    public $category;
+    public $attribute;
+    protected $listeners= ['applyFilter' => 'applyFilter'];
 
     public function render()
     {
@@ -28,18 +30,27 @@ class ProductsCollections extends Component
             ->where('attributes.status', 1)
             ->where('s_k_u_s.status', 1)
             ->where('food_categories.status', 1)
-            ->when($this->category, function ($query) {
+            ->when(!empty($this->category), function ($query) {
                 return $query->whereIn('food_items.category_id', $this->category);
+            })
+            ->when($this->attribute, function ($query) {
+                return $query->whereIn('s_k_u_s.attribute_id', $this->attribute);
             })
             ->select('food_items.*','s_k_u_s.price',
                 'attributes.name as attribute',
-                'food_categories.name as category_name')
+                'food_categories.name as category')
             ->paginate(10);
+    }
+
+    public function applyFilter($category, $attribute)
+    {
+        $this->category = $category;
+        $this->attribute = $attribute;
     }
 
     public function ChangeLimit($limit): void
     {
         $this->limit=$limit;
-        // $this->emit('refresh');
+         $this->emit('refresh');
     }
 }

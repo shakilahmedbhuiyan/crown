@@ -10,10 +10,9 @@
         </svg>
     </summary>
 
-    <form  class="border-t border-gray-200 lg:border-t-0">
+    <form class="border-t border-gray-200 lg:border-t-0"  wire:submit.prevent="applyFilter">
         @csrf
-        <fieldset>
-            <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50 dark:bg-gray-800">
+            <legend class="block w-full px-5 py-3 text-sm font-medium bg-gray-50 dark:bg-gray-800">
                 <span class="flex justify-between">
                     <span>Items</span>
                     <i class="icofont-food-basket text-2xl text-orange-500 dark:text-teal-500"></i>
@@ -26,7 +25,8 @@
                     <div class="flex items-center">
                         <input id="{{ $c['name'] }}"
                                type="checkbox"
-                               name="type[{{ $c['id'] }}]"
+                               value="{{ $c['id'] }}"
+                               wire:model="category.{{ $c['id'] }}"
                                class="w-5 h-5 border-red-300 rounded"/>
 
                         <label for="{{ $c['name'] }}" class="ml-3 text-sm font-medium">
@@ -38,19 +38,25 @@
 
 
                 <div class="pt-2">
-                    <button type="button"
+                    <button type="button" wire:click="resetCategories"
                             class="text-xs text-gray-500 underline">
                         Reset Items
                     </button>
                 </div>
             </div>
 
+            <legend class="block w-full px-5 py-3 text-sm font-medium bg-gray-50 dark:bg-gray-800">
+                <span class="flex justify-between">
+                    <span>Attributes</span>
+                    <i class="icofont-ui-tag text-2xl text-orange-500 dark:text-teal-500"></i>
+                </span>
+            </legend>
             <div class="px-5 py-6 space-y-2">
                 @foreach($attributes as $a)
                     <div class="flex items-center">
                         <input id="{{ $a['name'] }}"
-                               type="checkbox"
-                               name="type[{{ $a['id'] }}]"
+                               type="checkbox" wire:model="attribute.{{ $a['id'] }}"
+                               value="{{ $a['id'] }}"
                                class="w-5 h-5 border-red-300 rounded"/>
 
                         <label for="{{ $a['name'] }}" class="ml-3 text-sm font-medium">
@@ -59,29 +65,23 @@
                     </div>
                 @endforeach
                 <div class="pt-2">
-                    <button type="button"
+                    <button type="button" wire:click="resetAttributes"
                             class="text-xs text-gray-500 underline">
                         Reset Items
                     </button>
                 </div>
             </div>
 
-        </fieldset>
+
 
         <div class="flex justify-between px-5 py-3 border-t border-gray-200">
-            <button
-                name="reset"
-                type="button"
-                class="text-xs font-medium text-gray-600 underline rounded"
-            >
+            <button  name="reset" type="button" wire:click="resetFilter"
+                class="text-xs font-medium text-gray-600 underline rounded" >
                 Reset All
             </button>
 
-            <button
-                name="commit"
-                type="button"
-                class="px-5 py-3 text-xs font-medium text-white bg-green-600 rounded"
-            >
+            <button type="submit"
+                class="px-5 py-3 text-xs font-medium text-white bg-green-600 rounded">
                 Apply Filters
             </button>
         </div>
