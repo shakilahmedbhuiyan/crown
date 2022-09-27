@@ -9,7 +9,9 @@ use Livewire\Component;
 class CategorySidebar extends Component
 {
     public $categories, $attributes;
-    public $category, $attribute;
+    public $category = [], $attribute = [];
+    protected $listeners = ['filter' => 'applyFilter'];
+
     public function render()
     {
         return view('livewire.guest.components.category-sidebar');
@@ -21,17 +23,18 @@ class CategorySidebar extends Component
         $this->attributes = Attribute::getActiveAttributes()->toArray();
     }
 
-    public function applyFilter()
+    public function applyFilter(): void
     {
         $this->emit('applyFilter', $this->category, $this->attribute);
     }
-    public function resetCategories()
+
+    public function resetCategories(): void
     {
         $this->category = null;
         $this->emit('applyFilter', $this->category, $this->attribute);
     }
 
-    public function resetAttributes()
+    public function resetAttributes(): void
     {
         $this->attribute = null;
         $this->emit('applyFilter', $this->category, $this->attribute);

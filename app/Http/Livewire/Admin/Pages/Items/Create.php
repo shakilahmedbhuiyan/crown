@@ -13,7 +13,11 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $form = [];
+    public $form = [
+        'name' => '',
+        'description' => '',
+        'price' => '',
+        ];
     public $image;
     public $prices = [' '];
     public $categories, $attributes, $attributes_selected;

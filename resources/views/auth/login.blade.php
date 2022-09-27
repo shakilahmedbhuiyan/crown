@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form id="login-form" method="POST" action="{{ route('login') }}">
             <p class="text-lg font-medium mb-2 flex justify-center">Sign in to your account</p>
 
             <x-jet-validation-errors class="mb-4"/>
@@ -122,4 +122,10 @@
             </div>
         </form>
     </x-auth-card>
+
+    <script>
+        function onSubmit(token) {
+            document.getElementById("login-form").submit();
+        }
+    </script>
 </x-guest-layout>

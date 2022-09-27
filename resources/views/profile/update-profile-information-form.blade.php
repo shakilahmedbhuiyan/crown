@@ -1,13 +1,15 @@
 <x-jet-form-section submit="updateProfileInformation">
-    <x-slot name="title">
-        {{ __('Profile Information') }}
+    <x-slot name="title" >
+        <span class="text-black dark:text-gray-200">
+             {{ __('Profile Information') }}
+        </span>
     </x-slot>
 
     <x-slot name="description">
         {{ __('Update your account\'s profile information and email address.') }}
     </x-slot>
 
-    <x-slot name="form">
+    <x-slot name="form" class="dark:bg-gray-800">
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
@@ -24,7 +26,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
+                <x-jet-label for="photo" value="{{ __('Photo') }}"></x-jet-label>
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
@@ -48,22 +50,22 @@
                     </x-jet-secondary-button>
                 @endif
 
-                <x-jet-input-error for="photo" class="mt-2" />
+                <x-jet-input-error for="photo" class="mt-2"></x-jet-input-error>
             </div>
         @endif
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
-            <x-jet-input-error for="name" class="mt-2" />
+            <x-jet-label for="name" value="{{ __('Name') }}"></x-jet-label>
+            <x-input id="name" type="text" class="mt-1 block w-full text-black dark:text-gray-200" wire:model.defer="state.name" autocomplete="name"></x-input>
+            <x-jet-input-error for="name" class="mt-2"></x-jet-input-error>
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="email" value="{{ __('Email') }}" />
-            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
-            <x-jet-input-error for="email" class="mt-2" />
+            <x-jet-label for="email" value="{{ __('Email') }}"></x-jet-label>
+            <x-input id="email" type="email" class="mt-1 block w-full text-black dark:text-gray-200" wire:model.defer="state.email"></x-input>
+            <x-jet-input-error for="email" class="mt-2"></x-jet-input-error>
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
                 <p class="text-sm mt-2">
@@ -88,8 +90,8 @@
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
+        <x-button wire:loading.attr="disabled" wire:target="photo">
             {{ __('Save') }}
-        </x-jet-button>
+        </x-button>
     </x-slot>
 </x-jet-form-section>

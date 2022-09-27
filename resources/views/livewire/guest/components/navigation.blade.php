@@ -42,7 +42,8 @@
 
                 <!-- Dark Mode Toggle -->
                 <button @click="dark()" type="button"
-                        class=" text-yellow-500 dark:text-indigo-600 hover:text-indigo-600 dark:hover:text-yellow-500  rounded-lg text-sm mx-4 p-2 flex justify-center items-center ">
+                        class="text-yellow-500 dark:text-indigo-600 hover:text-indigo-600 dark:hover:text-yellow-500
+                        rounded-lg text-sm mx-2 p-2 flex justify-center items-center ">
                     <svg id="theme-toggle-dark-icon"
                          class="hidden w-5 h-5 rotate-90 hover:rotate-0  transition-all duration-150"
                          fill="currentColor"
@@ -58,8 +59,22 @@
                     </svg>
                 </button>
 
+                <!-- Cart Button -->
+                <button class="relative mx-2 pr-2">
+                    <div class="absolute -top-4 left-4 ">
+                        <span class="text-white text-xs bg-red-400 rounded-full px-2 py-1">
+                            {{ "15" }}
+                        </span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6  hover:text-red-400">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                    </svg>
+                </button>
+
                 <!-- Menu Icons -->
-                <button class="py-3 ml-3" @click="navOpen=!navOpen">
+                <button class="py-3 ml-3 " @click="navOpen=!navOpen">
                     <svg :class="navOpen?'hidden':''" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                          viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -99,38 +114,32 @@
                                 :active=" request()->routeIs('menu')">
                         {{ __('Menu') }}
                     </x-nav-link>
-                    <a href="#" @click="active = 'mexican'; navOpen = false">
+                    <a href="/menu/mexican" @click="active = 'mexican'; navOpen = false">
                         <h1 class="p-3 hover:text-indigo-400 transition duration-200"
                             :class="active == 'mexican'?'border-b-2 border-indigo-400 text-indigo-400':''">Mexican
                         </h1>
                     </a>
-                    <a href="#" @click="active = 'italian'; navOpen = false">
+                    <a href="/menu/italian" @click="active = 'italian'; navOpen = false">
                         <h1 class="p-3 hover:text-indigo-400 transition duration-200"
                             :class="active == 'italian'?'border-b-2 border-indigo-400 text-indigo-400':''">Italian
                         </h1>
                     </a>
-                    <a href="#" @click="active = 'indian'; navOpen = false">
+                    <a href="/menu/indian" @click="active = 'indian'; navOpen = false">
                         <h1 class="p-3 hover:text-indigo-400 transition duration-200"
                             :class="active == 'indian'?'border-b-2 border-indigo-400 text-indigo-400':''">Indian
                         </h1>
                     </a>
-                    <a href="#" @click="active = 'burger'; navOpen = false">
+                    <a href="/menu/burger" @click="active = 'burger'; navOpen = false">
                         <h1 class="p-3 hover:text-indigo-400 transition duration-200"
                             :class="active == 'burger'?'border-b-2 border-indigo-400 text-indigo-400':''">Burger
                         </h1>
                     </a>
-                    <a href="#" @click="active = 'pizza'; navOpen = false">
+                    <a href="/menu/pizza" @click="active = 'pizza'; navOpen = false">
                         <h1 class="p-3 hover:text-indigo-400 transition duration-200"
                             :class="active == 'pizza'?'border-b-2 border-indigo-400 text-indigo-400':''">Pizza
                         </h1>
                     </a>
-                    <a href="#" @click="active = 'chicken-items'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'chicken-items'?'border-b-2 border-indigo-400 text-indigo-400':''">Chicken
-                            Items
-                        </h1>
-                    </a>
-                    <a href="#" @click="active = 'side-orders'; navOpen = false">
+                    <a href="/menu/side-order" @click="active = 'side-orders'; navOpen = false">
                         <h1 class="p-3 hover:text-indigo-400 transition duration-200"
                             :class="active == 'side-orders'?'border-b-2 border-indigo-400 text-indigo-400':''">Side
                             Orders
@@ -252,11 +261,11 @@
                 <x-nav-link href="{{ route('menu') }}" :active="request()->routeIs('menu')">
                     {{ __('Menu') }}
                 </x-nav-link>
-                <x-nav-link href="#" :active="request()->routeIs('mexican')">Mexican
+                <x-nav-link href="/menu/mexican" :active="request()->routeIs('mexican')">Mexican
                 </x-nav-link>
-                <x-nav-link href="#" :active="request()->routeIs('italian')">Italian
+                <x-nav-link href="/menu/italian" :active="request()->routeIs('italian')">Italian
                 </x-nav-link>
-                <x-nav-link href="#" :active="request()->routeIs('indian')">Indian
+                <x-nav-link href="/menu/indian" :active="request()->routeIs('indian')">Indian
                 </x-nav-link>
 
                 <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
@@ -339,14 +348,28 @@
                         </svg>
                         {{__('Sign up') }}
                     </x-nav-link>
-            @endif
-            <!-- Nav links End -->
+                @endif
+                <!-- Nav links End -->
                 <!-- Search Button -->
                 <button @click="searchBar = true; $nextTick(() => $refs.search.focus());">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:text-indigo-400" fill="none"
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:text-red-400" fill="none"
                          viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </button>
+
+                <!-- Cart Button -->
+                <button class="relative">
+                    <div class="absolute -top-4 left-4 ">
+                        <span class="text-white text-xs bg-red-400 rounded-full px-2 py-1">
+                            {{ Cart::getTotalQuantity() }}
+                        </span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6  hover:text-red-400">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
                     </svg>
                 </button>
 

@@ -6,7 +6,6 @@ use App\Models\CategoryNote;
 use App\Models\FoodCategory;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use League\CommonMark\Util\ArrayCollection;
 use Livewire\Component;
 
 class Category extends Component
@@ -39,22 +38,21 @@ class Category extends Component
 
     public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
+
         return view('livewire.admin.pages.category')
             ->layout('layouts.dash');
     }
-
 
     public function mount(): void
     {
         $this->form['status'] = true;
         $this->notes = new Collection();
         $this->fill([
-            'notes' => collect(['']),
+            'notes' => collect([]),
         ]);
 
 
     }
-
 
     /*
      * Save the note input to the model 'inputs' collection.
@@ -79,24 +77,27 @@ class Category extends Component
     {
 
         $validated = $this->validate();
-        //dd($validated['notes']);
+
         $category = FoodCategory::create([
             'name' => $validated['form']['name'],
             'description' => $validated['form']['description'],
             'status' => $validated['form']['status'],
         ]);
-       // dd($category->id);
-        foreach ($validated['notes'] as $note) {
-            if ($note !== null) {
-                $category->note()->create([
-                    'food_category_id' => $category->id,
-                    'note' => $note,
-                ]);
-            }
+        if (isset($validated['notes']))
+        {
+            foreach ($validated['notes'] as $note) {
+                if ($note !== null) {
+                    $category->note()->create([
+                        'food_category_id' => $category->id,
+                        'note' => $note,
+                    ]);
+                }
 
+            }
+            $this->reset();
         }
 
-        $this->reset();
+        $this->reset('form');
         $this->emitTo('admin.components.food-category-table', 'refreshCategory');
         return back()->with('success', 'Category created successfully');
 

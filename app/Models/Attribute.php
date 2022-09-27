@@ -22,4 +22,9 @@ class Attribute extends Model
     {
         return self::where('status', true)->get();
     }
+
+    public function sku(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(SKU::class)->where('status',true);
+    }
 }

@@ -237,10 +237,7 @@
 
                 </div>
                 <hr class="border border-red-500/20"/>
-
-
-
-
+                <!-- Submit Button -->
                 <div class="mt-4">
                     <button type="submit"
                             class="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-black rounded-lg sm:w-auto">
