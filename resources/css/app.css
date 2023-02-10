@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,900&display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'icofont/icofont.css';
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
+/*@import 'uicons-bold-rounded/css/uicons-bold-rounded.css';*/
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track{
+    background: #6683b3;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #f17570;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #f84038;
+}
+
+@layer components {
+    .navbar-active .hamburger div:first-child {
+        @apply rotate-45 translate-y-1.5;
+    }
+
+    .navbar-active .hamburger div:last-child {
+        @apply -rotate-45 -translate-y-1;
+    }
+
+    .navbar-active div:first-child div:first-child div:last-child {
+        @apply block lg:flex
+    }
+}
+
+.bg-headerPattern {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='70' height='70' patternTransform='scale(5) rotate(5)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/><path d='M-4.8 4.44L4 16.59 16.14 7.8M32 30.54l-13.23 7.07 7.06 13.23M-9 38.04l-3.81 14.5 14.5 3.81M65.22 4.44L74 16.59 86.15 7.8M61 38.04l-3.81 14.5 14.5 3.81'  stroke-linecap='square' stroke-width='0.5' stroke='hsla(258.5,59.4%,59.4%,1)' fill='none'/><path d='M59.71 62.88v3h3M4.84 25.54L2.87 27.8l2.26 1.97m7.65 16.4l-2.21-2.03-2.03 2.21m29.26 7.13l.56 2.95 2.95-.55'  stroke-linecap='square' stroke-width='0.5' stroke='hsla(339.6,82.2%,51.6%,1)' fill='none'/><path d='M58.98 27.57l-2.35-10.74-10.75 2.36M31.98-4.87l2.74 10.65 10.65-2.73M31.98 65.13l2.74 10.66 10.65-2.74'  stroke-linecap='square' stroke-width='0.5' stroke='hsla(198.7,97.6%,48.4%,1)' fill='none'/><path d='M8.42 62.57l6.4 2.82 2.82-6.41m33.13-15.24l-4.86-5.03-5.03 4.86m-14-19.64l4.84-5.06-5.06-4.84'  stroke-linecap='square' stroke-width='0.5' stroke='hsla(47,80.9%,61%,1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")
+}
+
+[x-cloak] { display: none !important; }
+#btn-back-to-top {
+    position: fixed;
+    display: none;
+}
+
+
+
+@font-face {
+    font-family: 'Retrieval-IT';
+    src: url('https://res.cloudinary.com/retrieval-it/raw/upload/v1587069028/retrieval%20it%20creadit/Retrieval-IT.eot?1x8tql');
+    src: url('https://res.cloudinary.com/retrieval-it/raw/upload/v1587069028/retrieval%20it%20creadit/Retrieval-IT.eot?1x8tql#iefix') format('embedded-opentype'),
+    url('https://res.cloudinary.com/retrieval-it/raw/upload/v1587069080/retrieval%20it%20creadit/Retrieval-IT.ttf?1x8tql') format('truetype'),
+    url('https://res.cloudinary.com/retrieval-it/raw/upload/v1587069100/retrieval%20it%20creadit/Retrieval-IT.woff?1x8tql') format('woff'),
+    url('https://drive.google.com/file/d/1ICucBSf9E5FBxlChM2NQhYHxiXt89LnJ/view?usp=sharing?1x8tql#Retrieval-IT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.retrievalIt {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'Retrieval-IT' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Retrieval-IT-Logo-01:before {
+    content: "\e900";
+}
+
+.google-login{
+    transition: background-color .3s, box-shadow .3s;
+    padding: 12px 16px 12px 42px;
+    border: 1px;
+    border-radius: 3px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+
+}
+.google-login:hover {
+     box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+ }
+
+
+.google-maps {
+    position: relative;
+    overflow: hidden;
+}
+
+.google-maps iframe {
+    position: absolute;
+    width: 100%;
+
+    height: 100% !important;
+}

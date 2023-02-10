@@ -1,0 +1,92 @@
+class ApiTokenManager extends Component
+{
+    public $accessToken;
+    public $refreshToken;
+
+    public function mount()
+    {
+        // Load the API tokens from storage or make an API call to retrieve them
+        $this->accessToken = $this->getAccessTokenFromStorage();
+        $this->refreshToken = $this->getRefreshTokenFromStorage();
+    }
+
+    public function makeApiCall()
+    {
+        $client = new GuzzleHttp\Client();
+        try {
+            $response = $client->get('https://api.example.com/protected-endpoint', [
+                'headers' => [
+                    'Authorization' => 'Bearer '.$this->accessToken,
+                ],
+            ]);
+            return $response->getBody();
+        } catch (ClientException $e) {
+            if ($e->getCode() === 401) {
+                // The access token has likely expired, so we need to refresh it
+                $this->refreshAccessToken();
+                // Try the API call again with the refreshed access token
+                $response = $client->get('https://api.example.com/protected-endpoint', [
+                    'headers' => [
+                        'Authorization' => 'Bearer '.$this->accessToken,
+                    ],
+                ]);
+                return $response->getBody();
+            }
+            throw $e;
+        }
+    }
+
+    private function refreshAccessToken()
+    {
+        // Make an API call to refresh the access token using the refresh token
+        $client = new GuzzleHttp\Client();
+        $response = $client->post('https://api.example.com/token/refresh', [
+            'headers' => [
+                'Authorization' => 'Bearer '.$this->refreshToken,
+            ],
+        ]);
+        $data = json_decode($response->getBody(), true);
+        $this->accessToken = $data['access_token'];
+        $this->storeAccessToken($this->accessToken);
+    }
+
+    private function getAccessTokenFromStorage()
+    {
+        // Load the access token from storage (e.g. using the Laravel cache)
+        // Return the access token
+    }
+
+    private function getRefreshTokenFromStorage()
+    {
+        // Load the refresh token from storage (e.g. using Laravel's encrypted cookies)
+        // Return the refresh token
+    }
+
+    private function storeAccessToken($accessToken)
+    {
+        // Store the access token in storage (e.g. using the Laravel cache)
+    }
+}
+
+private function refreshAccessToken()
+{
+    $client = new GuzzleHttp\Client();
+    try {
+        $response = $client->post('https://api.example.com/token/refresh', [
+            'headers' => [
+                'Authorization' => 'Bearer '.$this->refreshToken,
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            ],
+            'form_params' => [
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $this->refreshToken,
+                // Add any other required parameters here
+            ],
+        ]);
+        $data = json_decode($response->getBody(), true);
+        $this->accessToken = $data['access_token'];
+        $this->storeAccessToken($this->accessToken);
+    } catch (ClientException $e) {
+        // Handle errors here, for example by logging the error message
+    }
+}
