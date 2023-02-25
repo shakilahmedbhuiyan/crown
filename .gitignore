@@ -1,2 +1,8 @@
 node_modules
 vendor
+storage/app/public/profile-photos
+public/storage/profile-photos
+storage/app/livewire-tmp/*
+
+
+

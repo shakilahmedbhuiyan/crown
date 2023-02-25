@@ -4978,11 +4978,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
-
-var Turbolinks = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'turbolinks'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-Turbolinks.start(); // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start(); // const Turbolinks = require("turbolinks");
+// Turbolinks.start()
+// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 
 if (localStorage.getItem('color-theme') === 'dark' || !('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
   document.documentElement.classList.add('dark');

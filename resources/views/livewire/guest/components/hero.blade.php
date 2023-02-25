@@ -4,7 +4,7 @@
             <div class="w-full lg:w-1/2">
                 <div class="lg:max-w-lg">
                     <h1 class="text-2xl font-bold text-gray-800 uppercase dark:text-white lg:text-3xl">
-                        Crown Mexican
+                       {!! config('app.name') !!}
                     </h1>
                     <h2 class="mt-2 font-semibold text-gray-700 dark:text-gray-400">
                         Fast-Food, Chicken and Mexican Restaurant
@@ -24,7 +24,7 @@
 
             <div class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
                 <img class="w-full h-full lg:max-w-2xl drop-shadow-xl" src="{{ asset('img/CrownLogoOnly.svg') }}"
-                     alt="Crown Restaurante">
+                     alt="Crown Restaurant">
             </div>
         </div>
     </div>

@@ -16,11 +16,11 @@ class CreateFoodCategoriesTable extends Migration
         Schema::create('food_categories', function (Blueprint $table) {
             $table->id();
             $table->integer('business_id')->unsigned();
-            $table->foreign('business_id')->references('id')->on('business')->onDelete('cascade');
+//            $table->foreign('business_id')->references('id')->on('business')->onDelete('cascade');
             $table->string('short_code')->nullable();
             $table->integer('parent_id');
             $table->integer('created_by')->unsigned();
-            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+//            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -70,7 +70,6 @@ class CheckAccessToken
                 /*
                  * Update request header with the stored access token
                  */
-                echo "refresh token";
                 $request->headers->set('Authorization', 'Bearer ' . $access_Token);
             }
         }
@@ -86,10 +85,10 @@ class CheckAccessToken
 
         try {
             $response = Http::asForm()->post(config('pos-api.URI'), [
-                'username' => 'kalamsarker',
-                'password' => 'crown@uk',
-                'client_id' => '5',
-                'client_secret' => 'YnNrQ4QhdvFeDdhYQscIzIaU48uDGF1R5qWAPAiQ',
+                'username'=> config('pos-api.USERNAME'),
+                'password' => config('pos-api.PASSWORD'),
+                'client_id' => config('pos-api.CLIENT_ID'),
+                'client_secret' => config('pos-api.CLIENT_SECRET'),
                 'grant_type' => 'password',
             ]);
             $response = collect(json_decode($response));

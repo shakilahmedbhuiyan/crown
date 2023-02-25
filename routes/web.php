@@ -25,21 +25,17 @@ Route::get('auth/google/callback', GoogleController::class . '@handleGoogleCallb
  * Guest Routes
  */
 Route::get('/', \App\Http\Livewire\Guest\Pages\Home::class)->name('home');
-//Route::get('/menu', \App\Http\Livewire\Guest\Pages\Menu::class)->name('menu');
 Route::get('/contact', \App\Http\Livewire\Guest\Pages\Contact::class)->name('contact');
 Route::get('/sitemap.xml', \App\Http\Controllers\SitemapGeneratorController::class . '@index')->name('sitemap');
 Route::get('/eula', \App\Http\Controllers\EulaServiceController::class. '@show')->name('eula.show');
-//Route::get('/menu/{category}', \App\Http\Livewire\Guest\Pages\CategoryProduct::class,['category'=>'category'])
-//    ->name('menu.category');
-//Route::get('/page/{category}', \App\Http\Livewire\Guest\Pages\CategoryProduct::class,['category'=>'category']);
 
 Route::group([
-    'middleware' => ['CheckAccessToken'],],
+    'middleware' => ['CheckAccessToken'],
+    ],
     function(){
         Route::get('/menu', \App\Http\Livewire\Guest\Pages\Menu::class)->name('menu');
-        Route::get('/menu/{category}', \App\Http\Livewire\Guest\Pages\CategoryProduct::class,['category'=>'category'])
-            ->name('menu.category');
-        Route::get('/page/{category}', \App\Http\Livewire\Guest\Pages\CategoryProduct::class,['category'=>'category']);
+        Route::get('menu/{name?}/{category?}', \App\Http\Livewire\Guest\Pages\Menu::class,['category'=>'category', 'name'=> 'name' ])->name('menu.category');
+//        Route::get('menu/page/{link}', \App\Http\Livewire\Guest\Components\ProductsCollections::class. '@setQuery', ['nextPage'=>'link'])->name('filter.page');
     }
 );
 

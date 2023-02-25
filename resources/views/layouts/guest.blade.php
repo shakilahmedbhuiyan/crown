@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: https://ogp.me/ns#" class="scroll-smooth">
 <head>
-    <title>{{ config('app.name')}} @if(isset($title)){{ "-".$title }}@endif </title>
+    <title> {!! (isset($title)? $title.'-':''). config('app.name') !!} </title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,14 +9,15 @@
     <meta name="title" content="{{ config('app.name')}}">
     <meta name="description" content="Fast-Food, Chicken and Mexican Restaurant
     @if(isset($description)) {{ "-".$description }}@endif ">
-    <meta name="keywords" content="mexican, chicken, fast-food, crown mexican, crown restaurant southend, southend-on-sea">
+    <meta name="keywords"
+          content="mexican, chicken, fast-food, crown mexican, crown restaurant southend, southend-on-sea">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FF5C5C">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#FF5C5C">
 
-    <meta name='dmca-site-verification' content='QmZpYWJqNzhqMGR1QWd1WTgwbDUzTk5NQmlZMmlBQUE0c1VOaEZSTEJVQT01' />
+    <meta name='dmca-site-verification' content='QmZpYWJqNzhqMGR1QWd1WTgwbDUzTk5NQmlZMmlBQUE0c1VOaEZSTEJVQT01'/>
 
-    <meta property="og:title" content="{{ config('app.name') }}@if(isset($title)) {{ "-".$title }}@endif "/>
+    <meta property="og:title" content="{!! (isset($title)? $title.'-':''). config('app.name') !!}"/>
     <meta property="og:type" content="Restaurant"/>
     <meta property="og:url" content="{{ config('app.url') }}"/>
     <meta property="og:image" content="{{ asset('img/social-cover.png') }}"/>
@@ -27,21 +28,21 @@
     <meta property="og:locale:alternate" content="en_US"/>
 
     <!-- Google tag (gtag.js) -->
-    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-GBDS40ET9J"></script>
-    <script defer>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GBDS40ET9J');
-    </script>
+    {{--    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-GBDS40ET9J"></script>--}}
+    {{--    <script defer>--}}
+    {{--        window.dataLayer = window.dataLayer || [];--}}
+    {{--        function gtag(){dataLayer.push(arguments);}--}}
+    {{--        gtag('js', new Date());--}}
+    {{--        gtag('config', 'G-GBDS40ET9J');--}}
+    {{--    </script>--}}
     <!-- Google Tag Manager -->
-    <script defer>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-PNX2RHX');
-    </script>
+    {{--    <script defer>--}}
+    {{--        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':--}}
+    {{--                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],--}}
+    {{--            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=--}}
+    {{--            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);--}}
+    {{--        })(window,document,'script','dataLayer','GTM-PNX2RHX');--}}
+    {{--    </script>--}}
     <!-- End Google Tag Manager -->
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -51,7 +52,7 @@
     "@type": "Restaurant",
     "name": "{{ config('app.name') }} ",
     "logo": [ "{{ asset('img/logo3d.png') }}" ],
-    "url":  "https://crownrestaurante.com",
+    "url":  "https://crownrestaurant.uk",
     "slogan": "Fast-Food, Chicken and Mexican Restaurant",
     "hasMap": "https://goo.gl/maps/dMbPha53su2HvXL68",
     "founder": {
@@ -71,10 +72,11 @@
       },
     "hasMenu":{
       "@type":"Menu",
-      "url":"https://crownrestaurante.com/menu"
+      "url":"https://crownrestaurant.uk/menu"
       },
      "servesCuisine": "Takeaway"
   }
+
 
     </script>
 
@@ -82,9 +84,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
     @livewireStyles
+    <!-- Scripts -->
+
 
 </head>
 <body class="antialiased text-gray-800 dark:text-gray-200 ">
@@ -96,32 +98,32 @@
 <div id="fb-customer-chat" class="fb-customerchat">
 </div>
 
-<script defer>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "104999102364152");
-    chatbox.setAttribute("attribution", "biz_inbox");
-
-<!-- Your SDK code -->
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            xfbml            : true,
-            version          : 'v14.0'
-        });
-    };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_GB/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+<script defer >
+    //     var chatbox = document.getElementById('fb-customer-chat');
+    //     chatbox.setAttribute("page_id", "104999102364152");
+    //     chatbox.setAttribute("attribution", "biz_inbox");
+    //
+    // <!-- Your SDK code -->
+    //
+    //     window.fbAsyncInit = function() {
+    //         FB.init({
+    //             xfbml            : true,
+    //             version          : 'v14.0'
+    //         });
+    //     };
+    //     (function(d, s, id) {
+    //         var js, fjs = d.getElementsByTagName(s)[0];
+    //         if (d.getElementById(id)) return;
+    //         js = d.createElement(s); js.id = id;
+    //         js.src = 'https://connect.facebook.net/en_GB/sdk/xfbml.customerchat.js';
+    //         fjs.parentNode.insertBefore(js, fjs);
+    //     }(document, 'script', 'facebook-jssdk'));
 </script>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNX2RHX"
-                  height="0" width="0" title="Google Tag Manager" style="display:none;visibility:hidden"></iframe>
+            height="0" width="0" title="Google Tag Manager" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -156,10 +158,7 @@
 
 @stack('modals')
 
-<!-- Scripts -->
-@livewireScripts
-<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
-        data-turbolinks-eval="false" data-turbo-eval="false"></script>
+
 @yield('jsAfterLoad')
 
 @include('cookie-consent::index')
@@ -167,7 +166,7 @@
 
 <script defer>
     // Get the button
-    var mybutton = document.getElementById("btn-back-to-top");
+    let ScrollButton = document.getElementById("btn-back-to-top");
 
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
@@ -179,20 +178,24 @@
             document.body.scrollTop > 20 ||
             document.documentElement.scrollTop > 20
         ) {
-            mybutton.style.display = "block";
+            ScrollButton.style.display = "block";
         } else {
-            mybutton.style.display = "none";
+            ScrollButton.style.display = "none";
         }
     }
 
     // When the user clicks on the button, scroll to the top of the document
-    mybutton.addEventListener("click", backToTop);
+    ScrollButton.addEventListener("click", backToTop);
 
     function backToTop() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
 </script>
+
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}" defer></script>
+@livewireScripts
 </body>
 
 

@@ -2,55 +2,90 @@
 
 namespace App\Http\Livewire\Guest\Components;
 
-use App\Models\FoodItems;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Http;
 use Livewire\Component;
 
 
 class ProductsCollections extends Component
 {
-    public $limit;
-    public $category;
-    public $attribute;
-    public $item;
-    protected $listeners = ['applyFilter' => 'applyFilter'];
+
+    public $limit = 12;
+    public $perPage = 12;
+    public $currentPage = 1;
+    public $query;
+    public $category, $item;
+    protected $listeners = ['applyFilter' => 'updated'];
+    public $items, $data, $name;
+
+    public $previousPageUrl, $nextPageUrl;
+
+    public $life_cycle_info = [
+        'hook' => "",
+        'message' => "",
+    ];
+
+    public function mount()
+    {
+        $this->header =
+            [
+                'title' => $this->name? 'Menu | '.$this->name : 'Menu',
+                'breadcrumbs' => ['home', 'menu'],
+                'description' => 'All food item of crown restaurant are available here'
+            ];
+        $this->query = "/product?per_page=".$this->perPage."&order_by=product_name&category_id=" . $this->category;
+
+        $this->loadProduct();
+//       dd($this->data);
+
+    }
+
+    private function loadProduct()
+    {
+        $result = Http::withHeaders(['Authorization' => 'Bearer ' . session('access_token')])
+            ->get(config('pos-api.HOST') . $this->query);
+        $this->items = json_decode($result, true);
+        $this->data = $this->items['data'];
+    }
+
+    public function hydrate()
+    {
+        $this->loadProduct();
+        $this->life_cycle_info['hook'] = "hydrate";
+        $this->life_cycle_info['message'] = "Application is hydrating...";
+//        $this->render();
+    }
+
 
     public function render()
     {
+
         return view('livewire.guest.components.products-collections')
-            ->with('items', $this->items());
+//            ->with('items', $this->items)
+            ->with('page', $this->currentPage)
+            ->layout('layouts.guest');
     }
 
-    public function items()
+    public function updated($category): void
     {
-        return FoodItems::with('category.note', 'sku.attribute')
-            ->where('is_available', 1)
-            ->when(!empty($this->category), function ($query) {
-                return $query->whereIn('category_id', $this->category)
-                    ->whereHas('category', function ($query) {
-                        $query->where('status', 1);
-                    });
-            })
-            ->when(!empty($this->attribute), function ($query) {
-                return $query->whereHas('sku.attribute', function ($query) {
-                    $query->whereIn('attribute_id', $this->attribute);
-                });
-            })->orderBy('food_items.name', 'asc')
-            ->paginate(8);
+        $this->category = collect($category)->implode(',');
+//
+        $this->query = "/product?per_page=-1&order_by=product_name&category_id=" . collect($category)->implode(',');
+//        $this->emit('refresh');
+//        $this->mount();
+//       dd($this->query);
 
     }
 
-    public function applyFilter($category, $attribute): void
+    public function filterCategory($category): void
     {
-        $this->category = $category;
-        $this->attribute = $attribute;
+        $this->category = collect($category)->implode(',');
     }
 
-    public function ChangeLimit($limit): void
+    public function ChangeLimit()
     {
-        $this->limit = $limit;
-        $this->emit('refresh');
+        dd($this->perPage);
+        $this->perPage *= 2;
+
+//        $this->emit('refresh');
     }
 }

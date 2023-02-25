@@ -139,37 +139,37 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-                    <a href="/menu/mexican" @click="active = 'mexican'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'mexican'?'border-b-2 border-indigo-400 text-indigo-400':''">Mexican
-                        </h1>
-                    </a>
-                    <a href="/menu/italian" @click="active = 'italian'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'italian'?'border-b-2 border-indigo-400 text-indigo-400':''">Italian
-                        </h1>
-                    </a>
-                    <a href="/menu/indian" @click="active = 'indian'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'indian'?'border-b-2 border-indigo-400 text-indigo-400':''">Indian
-                        </h1>
-                    </a>
-                    <a href="/menu/burger" @click="active = 'burger'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'burger'?'border-b-2 border-indigo-400 text-indigo-400':''">Burger
-                        </h1>
-                    </a>
-                    <a href="/menu/pizza" @click="active = 'pizza'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'pizza'?'border-b-2 border-indigo-400 text-indigo-400':''">Pizza
-                        </h1>
-                    </a>
-                    <a href="/menu/side-order" @click="active = 'side-orders'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'side-orders'?'border-b-2 border-indigo-400 text-indigo-400':''">Side
-                            Orders
-                        </h1>
-                    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.nav-link','data' => ['href' => ''.e(route('contact')).'','@click' => 'navOpen = false','active' =>  request()->routeIs('contact')]]); ?>
@@ -383,42 +383,12 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.nav-link','data' => ['href' => '/menu/mexican','active' => request()->routeIs('mexican')]]); ?>
-<?php $component->withName('nav-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['href' => '/menu/mexican','active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('mexican'))]); ?>Mexican
-                 <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.nav-link','data' => ['href' => '/menu/italian','active' => request()->routeIs('italian')]]); ?>
-<?php $component->withName('nav-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['href' => '/menu/italian','active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('italian'))]); ?>Italian
-                 <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.nav-link','data' => ['href' => '/menu/indian','active' => request()->routeIs('indian')]]); ?>
-<?php $component->withName('nav-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['href' => '/menu/indian','active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('indian'))]); ?>Indian
-                 <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
+
+
+
+
+
+
 
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.nav-link','data' => ['href' => ''.e(route('contact')).'','active' => request()->routeIs('contact')]]); ?>

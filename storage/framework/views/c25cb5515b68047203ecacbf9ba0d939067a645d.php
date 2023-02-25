@@ -16,6 +16,24 @@ echo $html;
 <section>
     <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:items-start">
+            <!-- sidebar / food category -->
+            <div class="">
+                <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('guest.components.category-sidebar', [])->html();
+} elseif ($_instance->childHasBeenRendered('l2080660970-1')) {
+    $componentId = $_instance->getRenderedChildComponentId('l2080660970-1');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l2080660970-1');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l2080660970-1');
+} else {
+    $response = \Livewire\Livewire::mount('guest.components.category-sidebar', []);
+    $html = $response->html();
+    $_instance->logRenderedChild('l2080660970-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+            </div>
             <div class="lg:col-span-3">
                 <div
                     class="absolute backdrop-blur bg-gray-800 bg-opacity-25 top-[2rem] right-4 w-full h-full flex justify-center item-center"
@@ -24,6 +42,7 @@ echo $html;
                         Loading...
                     </p>
                 </div>
+
                 <div class="flex items-center justify-between">
                     <p class="text-sm text-gray-500">
                         <span class="hidden sm:inline">Showing</span>

@@ -99,37 +99,37 @@
                                 :active=" request()->routeIs('menu')">
                         {{ __('Menu') }}
                     </x-nav-link>
-                    <a href="/menu/mexican" @click="active = 'mexican'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'mexican'?'border-b-2 border-indigo-400 text-indigo-400':''">Mexican
-                        </h1>
-                    </a>
-                    <a href="/menu/italian" @click="active = 'italian'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'italian'?'border-b-2 border-indigo-400 text-indigo-400':''">Italian
-                        </h1>
-                    </a>
-                    <a href="/menu/indian" @click="active = 'indian'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'indian'?'border-b-2 border-indigo-400 text-indigo-400':''">Indian
-                        </h1>
-                    </a>
-                    <a href="/menu/burger" @click="active = 'burger'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'burger'?'border-b-2 border-indigo-400 text-indigo-400':''">Burger
-                        </h1>
-                    </a>
-                    <a href="/menu/pizza" @click="active = 'pizza'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'pizza'?'border-b-2 border-indigo-400 text-indigo-400':''">Pizza
-                        </h1>
-                    </a>
-                    <a href="/menu/side-order" @click="active = 'side-orders'; navOpen = false">
-                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"
-                            :class="active == 'side-orders'?'border-b-2 border-indigo-400 text-indigo-400':''">Side
-                            Orders
-                        </h1>
-                    </a>
+{{--                    <a href="/menu/mexican" @click="active = 'mexican'; navOpen = false">--}}
+{{--                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"--}}
+{{--                            :class="active == 'mexican'?'border-b-2 border-indigo-400 text-indigo-400':''">Mexican--}}
+{{--                        </h1>--}}
+{{--                    </a>--}}
+{{--                    <a href="/menu/italian" @click="active = 'italian'; navOpen = false">--}}
+{{--                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"--}}
+{{--                            :class="active == 'italian'?'border-b-2 border-indigo-400 text-indigo-400':''">Italian--}}
+{{--                        </h1>--}}
+{{--                    </a>--}}
+{{--                    <a href="/menu/indian" @click="active = 'indian'; navOpen = false">--}}
+{{--                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"--}}
+{{--                            :class="active == 'indian'?'border-b-2 border-indigo-400 text-indigo-400':''">Indian--}}
+{{--                        </h1>--}}
+{{--                    </a>--}}
+{{--                    <a href="/menu/burger" @click="active = 'burger'; navOpen = false">--}}
+{{--                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"--}}
+{{--                            :class="active == 'burger'?'border-b-2 border-indigo-400 text-indigo-400':''">Burger--}}
+{{--                        </h1>--}}
+{{--                    </a>--}}
+{{--                    <a href="/menu/pizza" @click="active = 'pizza'; navOpen = false">--}}
+{{--                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"--}}
+{{--                            :class="active == 'pizza'?'border-b-2 border-indigo-400 text-indigo-400':''">Pizza--}}
+{{--                        </h1>--}}
+{{--                    </a>--}}
+{{--                    <a href="/menu/side-order" @click="active = 'side-orders'; navOpen = false">--}}
+{{--                        <h1 class="p-3 hover:text-indigo-400 transition duration-200"--}}
+{{--                            :class="active == 'side-orders'?'border-b-2 border-indigo-400 text-indigo-400':''">Side--}}
+{{--                            Orders--}}
+{{--                        </h1>--}}
+{{--                    </a>--}}
 
                     <x-nav-link href="{{ route('contact') }}" @click="navOpen = false"
                                 :active=" request()->routeIs('contact')">
@@ -246,12 +246,12 @@
                 <x-nav-link href="{{ route('menu') }}" :active="request()->routeIs('menu')">
                     {{ __('Menu') }}
                 </x-nav-link>
-                <x-nav-link href="/menu/mexican" :active="request()->routeIs('mexican')">Mexican
-                </x-nav-link>
-                <x-nav-link href="/menu/italian" :active="request()->routeIs('italian')">Italian
-                </x-nav-link>
-                <x-nav-link href="/menu/indian" :active="request()->routeIs('indian')">Indian
-                </x-nav-link>
+{{--                <x-nav-link href="/menu/mexican" :active="request()->routeIs('mexican')">Mexican--}}
+{{--                </x-nav-link>--}}
+{{--                <x-nav-link href="/menu/italian" :active="request()->routeIs('italian')">Italian--}}
+{{--                </x-nav-link>--}}
+{{--                <x-nav-link href="/menu/indian" :active="request()->routeIs('indian')">Indian--}}
+{{--                </x-nav-link>--}}
 
                 <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                     {{ __('Contact') }}

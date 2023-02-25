@@ -1,9 +1,10 @@
 <div x-data="{open : true}">
 
-    <details open x-effect="open" class="overflow-hidden border border-red-400/20 dark:border-indigo-400/20 rounded lg:drop-shadow">
+    <details open x-effect="open"
+             class="overflow-hidden border border-red-400/20 dark:border-indigo-400/20 rounded lg:drop-shadow">
         <summary class="flex items-center justify-between px-5 py-3 bg-gray-50 dark:bg-gray-800  inline-block">
         <span class="text-sm font-medium">
-            Apply Filters
+           Filter Items
         </span>
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
@@ -12,17 +13,18 @@
             </svg>
         </summary>
 
-        <form class="border-t border-gray-200 lg:border-t-0"  wire:submit.prevent="applyFilter">
+
+        <form class="border-t border-gray-200 lg:border-t-0" wire:submit.prevent="">
             <?php echo csrf_field(); ?>
             <div class="flex justify-between px-5 py-3 border-t border-gray-200">
-                <button  name="reset" type="button" wire:click="resetFilter"
-                         class="text-xs font-medium text-gray-600 underline rounded" >
+                <button name="reset" type="button" wire:click="resetFilter"
+                        class="text-xs font-medium text-gray-600 underline rounded">
                     Reset All
                 </button>
-                <button type="submit"
-                        class="px-5 py-3 text-xs font-medium text-white bg-green-600 rounded">
-                    Apply Filters
-                </button>
+
+
+
+
             </div>
             <legend class="block w-full px-5 py-3 text-sm font-medium bg-gray-50 dark:bg-gray-800">
                 <span class="flex justify-between">
@@ -35,18 +37,22 @@
 
                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="flex items-center">
-                        <input id="<?php echo e($c['name']); ?>"
-                               type="checkbox"
-                               value="<?php echo e($c['id']); ?>"
-                               wire:model="category.<?php echo e($c['id']); ?>"
-                               wire:change="applyFilter"
-                               @click="open = false"
-                               class="w-5 h-5 border-red-300 rounded"/>
+                        <a href="<?php echo e(route('menu.category',[$c['name'], $c['id']])); ?>">
 
-                        <label for="<?php echo e($c['name']); ?>" class="ml-3 text-sm font-medium">
+
+
+
+
+
+
+
+
+                        <label for="<?php echo e($c['name']); ?>" class="ml-3 text-sm font-medium hover:text-red-500">
                             <?php echo e($c['name']); ?>
 
                         </label>
+                        </a>
+
                     </div>
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -60,45 +66,16 @@
                 </div>
             </div>
 
-            <legend class="block w-full px-5 py-3 text-sm font-medium bg-gray-50 dark:bg-gray-800">
-                <span class="flex justify-between">
-                    <span>Attributes</span>
-                    <i class="icofont-ui-tag text-2xl text-orange-500 dark:text-teal-500"></i>
-                </span>
-            </legend>
-            <div class="px-5 py-6 space-y-2">
-                <?php $__currentLoopData = $attributes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $a): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="flex items-center">
-                        <input id="<?php echo e($a['name']); ?>"
-                               type="checkbox" wire:model="attribute.<?php echo e($a['id']); ?>"
-                               value="<?php echo e($a['id']); ?>"  wire:click="applyFilter"
-                               @click="open = false"
-                               class="w-5 h-5 border-red-300 rounded"/>
-
-                        <label for="<?php echo e($a['name']); ?>" class="ml-3 text-sm font-medium">
-                            <?php echo e($a['name']); ?>
-
-                        </label>
-                    </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <div class="pt-2">
-                    <button type="button" wire:click="resetAttributes"
-                            class="text-xs text-gray-500 underline">
-                        Reset Items
-                    </button>
-                </div>
-            </div>
-
             <div class="flex justify-between px-5 py-3 border-t border-gray-200">
-                <button  name="reset" type="button" wire:click="resetFilter"
-                         class="text-xs font-medium text-gray-600 underline rounded" >
+                <button name="reset" type="button" wire:click="resetFilter"
+                        class="text-xs font-medium text-gray-600 underline rounded">
                     Reset All
                 </button>
 
-                <button type="submit"
-                        class="px-5 py-3 text-xs font-medium text-white bg-green-600 rounded">
-                    Apply Filters
-                </button>
+
+
+
+
             </div>
         </form>
     </details>

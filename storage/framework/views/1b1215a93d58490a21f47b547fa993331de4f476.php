@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" prefix="og: https://ogp.me/ns#" class="scroll-smooth">
 <head>
-    <title><?php echo e(config('app.name')); ?> <?php if(isset($title)): ?><?php echo e("-".$title); ?><?php endif; ?> </title>
+    <title> <?php echo (isset($title)? $title.'-':''). config('app.name'); ?> </title>
     <link rel="icon" href="<?php echo e(asset('favicon.ico')); ?>" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,14 +9,15 @@
     <meta name="title" content="<?php echo e(config('app.name')); ?>">
     <meta name="description" content="Fast-Food, Chicken and Mexican Restaurant
     <?php if(isset($description)): ?> <?php echo e("-".$description); ?><?php endif; ?> ">
-    <meta name="keywords" content="mexican, chicken, fast-food, crown mexican, crown restaurant southend, southend-on-sea">
+    <meta name="keywords"
+          content="mexican, chicken, fast-food, crown mexican, crown restaurant southend, southend-on-sea">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FF5C5C">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#FF5C5C">
 
-    <meta name='dmca-site-verification' content='QmZpYWJqNzhqMGR1QWd1WTgwbDUzTk5NQmlZMmlBQUE0c1VOaEZSTEJVQT01' />
+    <meta name='dmca-site-verification' content='QmZpYWJqNzhqMGR1QWd1WTgwbDUzTk5NQmlZMmlBQUE0c1VOaEZSTEJVQT01'/>
 
-    <meta property="og:title" content="<?php echo e(config('app.name')); ?><?php if(isset($title)): ?> <?php echo e("-".$title); ?><?php endif; ?> "/>
+    <meta property="og:title" content="<?php echo (isset($title)? $title.'-':''). config('app.name'); ?>"/>
     <meta property="og:type" content="Restaurant"/>
     <meta property="og:url" content="<?php echo e(config('app.url')); ?>"/>
     <meta property="og:image" content="<?php echo e(asset('img/social-cover.png')); ?>"/>
@@ -27,21 +28,21 @@
     <meta property="og:locale:alternate" content="en_US"/>
 
     <!-- Google tag (gtag.js) -->
-    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-GBDS40ET9J"></script>
-    <script defer>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GBDS40ET9J');
-    </script>
+    
+    
+    
+    
+    
+    
+    
     <!-- Google Tag Manager -->
-    <script defer>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-PNX2RHX');
-    </script>
+    
+    
+    
+    
+    
+    
+    
     <!-- End Google Tag Manager -->
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -51,7 +52,7 @@
     "@type": "Restaurant",
     "name": "<?php echo e(config('app.name')); ?> ",
     "logo": [ "<?php echo e(asset('img/logo3d.png')); ?>" ],
-    "url":  "https://crownrestaurante.com",
+    "url":  "https://crownrestaurant.uk",
     "slogan": "Fast-Food, Chicken and Mexican Restaurant",
     "hasMap": "https://goo.gl/maps/dMbPha53su2HvXL68",
     "founder": {
@@ -71,10 +72,11 @@
       },
     "hasMenu":{
       "@type":"Menu",
-      "url":"https://crownrestaurante.com/menu"
+      "url":"https://crownrestaurant.uk/menu"
       },
      "servesCuisine": "Takeaway"
   }
+
 
     </script>
 
@@ -82,9 +84,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo e(mix('css/app.css')); ?>">
-    <!-- Scripts -->
-    <script src="<?php echo e(mix('js/app.js')); ?>" defer></script>
     <?php echo \Livewire\Livewire::styles(); ?>
+
+    <!-- Scripts -->
 
 
 </head>
@@ -97,32 +99,32 @@
 <div id="fb-customer-chat" class="fb-customerchat">
 </div>
 
-<script defer>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "104999102364152");
-    chatbox.setAttribute("attribution", "biz_inbox");
-
-<!-- Your SDK code -->
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            xfbml            : true,
-            version          : 'v14.0'
-        });
-    };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_GB/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+<script defer >
+    //     var chatbox = document.getElementById('fb-customer-chat');
+    //     chatbox.setAttribute("page_id", "104999102364152");
+    //     chatbox.setAttribute("attribution", "biz_inbox");
+    //
+    // <!-- Your SDK code -->
+    //
+    //     window.fbAsyncInit = function() {
+    //         FB.init({
+    //             xfbml            : true,
+    //             version          : 'v14.0'
+    //         });
+    //     };
+    //     (function(d, s, id) {
+    //         var js, fjs = d.getElementsByTagName(s)[0];
+    //         if (d.getElementById(id)) return;
+    //         js = d.createElement(s); js.id = id;
+    //         js.src = 'https://connect.facebook.net/en_GB/sdk/xfbml.customerchat.js';
+    //         fjs.parentNode.insertBefore(js, fjs);
+    //     }(document, 'script', 'facebook-jssdk'));
 </script>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNX2RHX"
-                  height="0" width="0" title="Google Tag Manager" style="display:none;visibility:hidden"></iframe>
+            height="0" width="0" title="Google Tag Manager" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -143,15 +145,15 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('guest.components.navigation')->html();
-} elseif ($_instance->childHasBeenRendered('q7L3V6P')) {
-    $componentId = $_instance->getRenderedChildComponentId('q7L3V6P');
-    $componentTag = $_instance->getRenderedChildComponentTagName('q7L3V6P');
+} elseif ($_instance->childHasBeenRendered('Zc5iOre')) {
+    $componentId = $_instance->getRenderedChildComponentId('Zc5iOre');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Zc5iOre');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('q7L3V6P');
+    $_instance->preserveRenderedChild('Zc5iOre');
 } else {
     $response = \Livewire\Livewire::mount('guest.components.navigation');
     $html = $response->html();
-    $_instance->logRenderedChild('q7L3V6P', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Zc5iOre', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -172,15 +174,15 @@ echo $html;
 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('guest.components.footer')->html();
-} elseif ($_instance->childHasBeenRendered('MjKQwzc')) {
-    $componentId = $_instance->getRenderedChildComponentId('MjKQwzc');
-    $componentTag = $_instance->getRenderedChildComponentTagName('MjKQwzc');
+} elseif ($_instance->childHasBeenRendered('EcPTjmr')) {
+    $componentId = $_instance->getRenderedChildComponentId('EcPTjmr');
+    $componentTag = $_instance->getRenderedChildComponentTagName('EcPTjmr');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('MjKQwzc');
+    $_instance->preserveRenderedChild('EcPTjmr');
 } else {
     $response = \Livewire\Livewire::mount('guest.components.footer');
     $html = $response->html();
-    $_instance->logRenderedChild('MjKQwzc', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('EcPTjmr', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -198,11 +200,7 @@ echo $html;
 
 <?php echo $__env->yieldPushContent('modals'); ?>
 
-<!-- Scripts -->
-<?php echo \Livewire\Livewire::scripts(); ?>
 
-<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
-        data-turbolinks-eval="false" data-turbo-eval="false"></script>
 <?php echo $__env->yieldContent('jsAfterLoad'); ?>
 
 <?php echo $__env->make('cookie-consent::index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -210,7 +208,7 @@ echo $html;
 
 <script defer>
     // Get the button
-    var mybutton = document.getElementById("btn-back-to-top");
+    let ScrollButton = document.getElementById("btn-back-to-top");
 
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
@@ -222,20 +220,25 @@ echo $html;
             document.body.scrollTop > 20 ||
             document.documentElement.scrollTop > 20
         ) {
-            mybutton.style.display = "block";
+            ScrollButton.style.display = "block";
         } else {
-            mybutton.style.display = "none";
+            ScrollButton.style.display = "none";
         }
     }
 
     // When the user clicks on the button, scroll to the top of the document
-    mybutton.addEventListener("click", backToTop);
+    ScrollButton.addEventListener("click", backToTop);
 
     function backToTop() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
 </script>
+
+<!-- Scripts -->
+<script src="<?php echo e(mix('js/app.js')); ?>" defer></script>
+<?php echo \Livewire\Livewire::scripts(); ?>
+
 </body>
 
 
