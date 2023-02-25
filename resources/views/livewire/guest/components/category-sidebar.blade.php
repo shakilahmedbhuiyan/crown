@@ -38,15 +38,6 @@
                 @foreach($categories as $c)
                     <div class="flex items-center">
                         <a href="{{ route('menu.category',[$c['name'], $c['id']]) }}">
-{{--                        <input id="{{ $c['name'] }}"--}}
-{{--                               type="checkbox"--}}
-{{--                               value="{{ $c['id']  }}"--}}
-{{--                               name="category[]"--}}
-{{--                               wire:model="category"--}}
-{{--                               wire:change="applyFilter"--}}
-{{--                               @click="open = false"--}}
-{{--                               class="w-5 h-5 border-red-300 rounded"/>--}}
-
                         <label for="{{ $c['name'] }}" class="ml-3 text-sm font-medium hover:text-red-500">
                             {{ $c['name'] }}
                         </label>

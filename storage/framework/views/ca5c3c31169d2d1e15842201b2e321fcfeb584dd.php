@@ -60,7 +60,7 @@ echo $html;
            height="100%" width="100%" style="border:0;"
             allowfullscreen="true"
             loading="lazy"
-            title="Crown Mexican in Google Map"
+            title="Crown Restaurant in Google Map"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 

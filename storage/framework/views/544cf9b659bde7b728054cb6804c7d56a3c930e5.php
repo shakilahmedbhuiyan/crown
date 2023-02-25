@@ -144,7 +144,7 @@ echo $html;
                         </a>
                     <?php endif; ?>
 
-                    <p class="text-sm text-gray-500">
+                    <p class="text-sm font-normal text-gray-500">
                         <span class="hidden sm:inline"> Showing </span>
                         <?php echo e($items['meta']['from']); ?> to <?php echo e($items['meta']['to']); ?> of <?php echo e($items['meta']['total']); ?> Items
                     </p>

@@ -27,7 +27,6 @@ class CategorySidebar extends Component
     public function applyFilter()
     {
         redirect(route('menu.category',$this->category));
-//        $this->emit('applyFilter', $this->category);
     }
 
     public function resetCategories(): void
@@ -36,11 +35,9 @@ class CategorySidebar extends Component
         $this->emit('applyFilter', $this->category);
     }
 
-
     public function resetFilter()
     {
         $this->category = null;
-//        $this->attribute = null;
         $this->emit('applyFilter', null);
     }
 

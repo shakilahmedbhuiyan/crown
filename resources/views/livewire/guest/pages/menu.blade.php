@@ -100,7 +100,7 @@
                         </a>
                     @endif
 
-                    <p class="text-sm text-gray-500">
+                    <p class="text-sm font-normal text-gray-500">
                         <span class="hidden sm:inline"> Showing </span>
                         {{ $items['meta']['from']  }} to {{$items['meta']['to'] }} of {{$items['meta']['total'] }} Items
                     </p>

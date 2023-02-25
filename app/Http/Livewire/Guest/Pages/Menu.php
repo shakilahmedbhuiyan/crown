@@ -11,7 +11,7 @@ class Menu extends Component
 {
     public array $header = array();
 
-    public $perPage = 12;
+    public $perPage = 20;
     public $currentPage = 1;
     public $query;
     public $category;

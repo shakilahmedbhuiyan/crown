@@ -38,15 +38,6 @@
                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="flex items-center">
                         <a href="<?php echo e(route('menu.category',[$c['name'], $c['id']])); ?>">
-
-
-
-
-
-
-
-
-
                         <label for="<?php echo e($c['name']); ?>" class="ml-3 text-sm font-medium hover:text-red-500">
                             <?php echo e($c['name']); ?>
 

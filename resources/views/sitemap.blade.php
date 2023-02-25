@@ -51,10 +51,11 @@
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
+
     @foreach ($categories as $category)
         <url>
-            <loc>{{ url('/') }}/menu/{{ \Illuminate\Support\Str::slug($category->name) }}</loc>
-            <lastmod>{{ $category->created_at->tz('UTC')->toAtomString() }}</lastmod>
+            <loc>{{ url('/') }}/menu/{{ \Illuminate\Support\Str::slug($category['name']).'/'.$category['id'] }}</loc>
+            <lastmod>{{ $category['created_at'] }}</lastmod>
             <changefreq>hourly</changefreq>
             <priority>1</priority>
         </url>

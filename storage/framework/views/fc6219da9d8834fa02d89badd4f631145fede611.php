@@ -22,7 +22,8 @@
 
                         <p class="max-w-md mt-2 text-gray-500 dark:text-gray-400 flex flex-col">
                             <span class="text-2xl font-bold">
-                                Crown Mexican
+                                <?php echo config('app.name'); ?>
+
                             </span>
                            <span class="text-sm">
                                 Fast-Food, Chicken and Mexican Restaurant in Southend-on-Sea, UK
